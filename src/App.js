@@ -5,7 +5,7 @@ import PokemonList from "./components/PokemonList";
 import logo from "./static/logo.svg";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getPokemons } from "./api";
+import { getPokemons, getPokemonDetails } from "./api";
 import { setPokemons } from "./actions";
 
 function App() {
@@ -15,7 +15,10 @@ function App() {
   useEffect(() => {
     const fecthPokemons = async () => {
       const pokemonsRes = await getPokemons();
-      dispatch(setPokemons(pokemonsRes));
+      const pokemonsDetails = await Promise.all(
+        pokemonsRes.map((pokemon) => getPokemonDetails(pokemon))
+      );
+      dispatch(setPokemons(pokemonsDetails));
     };
     fecthPokemons();
   }, []);

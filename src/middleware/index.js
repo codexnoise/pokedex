@@ -6,7 +6,7 @@ export const logger = (store) => (next) => (action) => {
 };
 
 export const featuring = (store) => (next) => (actionInfo) => {
-  const featured = [{ name: "silverio" }, ...actionInfo.action.payload];
+  const featured = [...actionInfo.action.payload, { name: "silverio" }];
   const updateActionInfo = {
     ...actionInfo,
     action: { ...actionInfo.action, payload: featured },
