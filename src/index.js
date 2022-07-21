@@ -6,7 +6,10 @@ import { Provider } from "react-redux";
 import { pokemonsReducer } from "./reducers/pokemons";
 import { legacy_createStore as createStore } from "redux";
 
-const store = createStore(pokemonsReducer);
+const store = createStore(
+  pokemonsReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
