@@ -5,26 +5,15 @@ import PokemonList from "./components/PokemonList";
 import logo from "./static/logo.svg";
 import { useEffect } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
-import { getPokemons } from "./api";
-import { getPokemonsWithDetails, setLoading } from "./actions";
+import { fetchPokemonsWithDetails } from "./slices/dataSlices";
 
 function App() {
-  const pokemons = useSelector((state) =>
-    state.getIn(["data", "pokemons"])
-  ).toJS();
-  const loading = useSelector((state) =>
-    state.getIn(["ui", "loading"], shallowEqual)
-  );
+  const pokemons = useSelector((state) => state.data.pokemons, shallowEqual);
+  const loading = useSelector((state) => state.ui.loading);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fecthPokemons = async () => {
-      dispatch(setLoading(true));
-      const pokemonsRes = await getPokemons();
-      dispatch(getPokemonsWithDetails(pokemonsRes));
-      dispatch(setLoading(false));
-    };
-    fecthPokemons();
+    dispatch(fetchPokemonsWithDetails());
   }, []);
 
   return (
