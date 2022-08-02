@@ -1,7 +1,21 @@
 import { Input } from "antd";
+import { useDispatch } from "react-redux";
+import { setFilter } from "../slices/dataSlices";
 
 const Searcher = () => {
-  return <Input.Search placeholder="Search ..." style={{ marginBottom: 30 }} />;
+  const dispatch = useDispatch();
+
+  const handleOnChange = (e) => {
+    dispatch(setFilter(e.target.value));
+  };
+
+  return (
+    <Input.Search
+      placeholder="Search ..."
+      onChange={handleOnChange}
+      style={{ marginBottom: 30 }}
+    />
+  );
 };
 
 export default Searcher;
