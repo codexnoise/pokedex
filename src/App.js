@@ -6,6 +6,7 @@ import logo from "./static/logo.svg";
 import { useEffect } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { fetchPokemonsWithDetails } from "./slices/dataSlices";
+import PokeModal from "./components/PokeModal";
 
 function App() {
   const pokemons = useSelector(
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+      <PokeModal />
       <Col span={5} offset={10}>
         <img src={logo} alt="pokedux" />
       </Col>
