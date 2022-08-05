@@ -21,7 +21,7 @@ const PokeModal = ({ pokemons }) => {
         handleUnshowModal(false);
       }}
     >
-      ><p>Sample Modal contents</p>
+      <p>Sample Modal contents</p>
     </Modal>
   );
 };

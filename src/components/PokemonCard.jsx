@@ -16,7 +16,7 @@ const PokemonCard = ({ name, image, abilities, id, favorite }) => {
   };
 
   const handleModal = () => {
-    dispatch(setModal(true));
+    alert(`id: ${id}`);
   };
 
   return (
