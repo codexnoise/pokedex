@@ -2,8 +2,9 @@ import { Modal } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { setModal } from "../slices/uiSlices";
 
-const PokeModal = ({ pokemons }) => {
+const PokeModal = () => {
   const showModal = useSelector((state) => state.ui.showModal);
+  const idModal = useSelector((state) => state.ui.idModal);
   const dispatch = useDispatch();
 
   const handleUnshowModal = (show) => {
@@ -21,6 +22,7 @@ const PokeModal = ({ pokemons }) => {
         handleUnshowModal(false);
       }}
     >
+      <p>{idModal}</p>
       <p>Sample Modal contents</p>
     </Modal>
   );
