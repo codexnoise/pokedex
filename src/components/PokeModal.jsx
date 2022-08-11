@@ -14,7 +14,7 @@ const PokeModal = () => {
 
   return (
     <Modal
-      title="POKEMODAL"
+      title={pokemons[idModal - 1].name.toUpperCase()}
       visible={showModal}
       onOk={() => {
         handleUnshowModal(false);
@@ -24,8 +24,8 @@ const PokeModal = () => {
       }}
     >
       <img
-        src={pokemons[idModal].sprites.other.dream_world.front_default}
-        alt="pomkemodal"
+        src={pokemons[idModal - 1].sprites.other.dream_world.front_default}
+        alt={pokemons[idModal - 1].name}
       />
       <p>{idModal}</p>
       <p>Sample Modal contents</p>

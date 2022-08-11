@@ -15,6 +15,7 @@ function App() {
   );
 
   const loading = useSelector((state) => state.ui.loading);
+  const showModal = useSelector((state) => state.ui.showModal);
 
   const dispatch = useDispatch();
 
@@ -24,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <PokeModal />
+      {showModal && <PokeModal />}
       <Col span={5} offset={10}>
         <img src={logo} alt="pokedux" />
       </Col>
