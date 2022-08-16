@@ -1,6 +1,7 @@
-import { Modal } from "antd";
+import { Modal, Image } from "antd";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { setModal } from "../slices/uiSlices";
+import "./styles/componentStyles.css";
 
 const PokeModal = () => {
   const pokemons = useSelector((state) => state.data.pokemons, shallowEqual);
@@ -23,10 +24,15 @@ const PokeModal = () => {
         handleUnshowModal(false);
       }}
     >
-      <img
-        src={pokemons[idModal - 1].sprites.other.dream_world.front_default}
-        alt={pokemons[idModal - 1].name}
-      />
+      <center>
+        <Image
+          className="imageModal"
+          preview={false}
+          src={pokemons[idModal - 1].sprites.other.dream_world.front_default}
+          alt={pokemons[idModal - 1].name}
+        />
+      </center>
+
       <p>{idModal}</p>
       <p>Sample Modal contents</p>
     </Modal>
