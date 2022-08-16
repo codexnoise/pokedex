@@ -1,9 +1,13 @@
 import { Modal, Image } from "antd";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { setModal } from "../slices/uiSlices";
+import axios from "axios";
 import "./styles/componentStyles.css";
 
 const PokeModal = () => {
+  const API = "https://pokeapi.co/api/v2/ability";
+  const [pokeInfo, setPokeInfo] = useState("");
   const pokemons = useSelector((state) => state.data.pokemons, shallowEqual);
   const showModal = useSelector((state) => state.ui.showModal);
   const idModal = useSelector((state) => state.ui.idModal);
@@ -12,6 +16,13 @@ const PokeModal = () => {
   const handleUnshowModal = (show) => {
     dispatch(setModal(show));
   };
+
+  useEffect(() => {
+    axios.get(`${API}/${pokemons[idModal - 1]}`).then((response) => {
+      console.log("API RESPONSE", response.data.effect_entries[0].effect);
+      setPokeInfo(response.data.effect_entries[0].effect);
+    });
+  }, []);
 
   return (
     <Modal
@@ -34,7 +45,7 @@ const PokeModal = () => {
       </center>
 
       <p>{idModal}</p>
-      <p>Sample Modal contents</p>
+      <p>{pokeInfo}</p>
     </Modal>
   );
 };
