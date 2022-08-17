@@ -8,6 +8,7 @@ import "./styles/componentStyles.css";
 const PokeModal = () => {
   const API = "https://pokeapi.co/api/v2/ability";
   const [pokeInfo, setPokeInfo] = useState("");
+  const [loadingInfo, setloadingInfo] = useState(false);
   const pokemons = useSelector((state) => state.data.pokemons, shallowEqual);
   const showModal = useSelector((state) => state.ui.showModal);
   const idModal = useSelector((state) => state.ui.idModal);
@@ -18,9 +19,9 @@ const PokeModal = () => {
   };
 
   useEffect(() => {
-    axios.get(`${API}/${pokemons[idModal - 1]}`).then((response) => {
-      console.log("API RESPONSE", response.data.effect_entries[0].effect);
-      setPokeInfo(response.data.effect_entries[0].effect);
+    axios.get(`${API}/${pokemons[idModal - 1].id}`).then((response) => {
+      setPokeInfo(response.data.effect_entries[1].effect);
+      setloadingInfo(true);
     });
   }, []);
 
@@ -43,9 +44,7 @@ const PokeModal = () => {
           alt={pokemons[idModal - 1].name}
         />
       </center>
-
-      <p>{idModal}</p>
-      <p>{pokeInfo}</p>
+      {loadingInfo ? <p>{pokeInfo}</p> : <p>loading . . . </p>}
     </Modal>
   );
 };
