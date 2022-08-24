@@ -25,8 +25,7 @@ const PokemonCard = ({ name, image, abilities, id, favorite }) => {
       <Card
         id={id}
         title={name}
-        cover={<img src={image} alt={name} />}
-        onClick={() => handleModal()}
+        cover={<img src={image} alt={name} onClick={() => handleModal()} />}
         extra={<StartButton isFavorite={favorite} onClick={handleFavorites} />}
       >
         <Meta description={allAbilities} />
