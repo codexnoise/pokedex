@@ -1,4 +1,4 @@
-import { Modal, Image } from "antd";
+import { Modal, Image, Button } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { setModal } from "../slices/uiSlices";
@@ -29,12 +29,21 @@ const PokeModal = () => {
     <Modal
       title={pokemons[idModal - 1].name.toUpperCase()}
       visible={showModal}
-      onOk={() => {
-        handleUnshowModal(false);
-      }}
       onCancel={() => {
         handleUnshowModal(false);
       }}
+      footer={[
+        <Button key="back" onClick={() => handleUnshowModal(false)}>
+          Return
+        </Button>,
+        <Button
+          key="link"
+          href={`https://google.com/search?q=${pokemons[idModal - 1].name}`}
+          type="primary"
+        >
+          Search on Google
+        </Button>,
+      ]}
     >
       <center>
         <Image
