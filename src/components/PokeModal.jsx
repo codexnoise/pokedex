@@ -14,7 +14,7 @@ const PokeModal = () => {
   const idModal = useSelector((state) => state.ui.idModal);
   const dispatch = useDispatch();
 
-  const handleUnshowModal = (show) => {
+  const handleShowModal = (show) => {
     dispatch(setModal(show));
   };
 
@@ -30,10 +30,10 @@ const PokeModal = () => {
       title={pokemons[idModal - 1].name.toUpperCase()}
       visible={showModal}
       onCancel={() => {
-        handleUnshowModal(false);
+        handleShowModal(false);
       }}
       footer={[
-        <Button key="back" onClick={() => handleUnshowModal(false)}>
+        <Button key="back" onClick={() => handleShowModal(false)}>
           Return
         </Button>,
         <Button
