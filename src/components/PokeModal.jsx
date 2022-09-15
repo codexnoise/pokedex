@@ -40,6 +40,7 @@ const PokeModal = () => {
           key="link"
           href={`https://google.com/search?q=${pokemons[idModal - 1].name}`}
           type="primary"
+          target="_blank"
         >
           Search on Google
         </Button>,
