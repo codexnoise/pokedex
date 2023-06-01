@@ -21,17 +21,15 @@ const composedEnhancers = composeAlernative(applyMiddleware(thunk, logger));
 const store = createStore(rootReducer, composedEnhancers);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-ReactDOM.createRoot(document.getElementById("root")).render(
+root.render(
   <React.StrictMode>
-    <h1>Hello Word</h1>
     <Provider store={store}>
     <BrowserRouter >
         <Routes>
-          <Route path="/pokedex" component={App} />
-          <Route path="/" component={App} />
+          <Route path="/pokedex" element={<App />} />
+          <Route path="/" element={<App />} />
         </Routes>
       </BrowserRouter>
     </Provider>
-    <h1>God Bye Word</h1>
   </React.StrictMode>
 );
