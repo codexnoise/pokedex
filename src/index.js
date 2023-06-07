@@ -23,12 +23,13 @@ const store = createStore(rootReducer, composedEnhancers);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <h1>XXX</h1>
     <Provider store={store}>
-    <BrowserRouter >
-        <Routes>
-          <Route path="/pokedex" element={<App />} />
-          <Route path="/" element={<App />} />
-        </Routes>
+      <BrowserRouter >
+          <Routes>
+            <Route path="/pokedex" element={<App />} />
+            <Route path="/" element={<App />} />
+          </Routes>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
