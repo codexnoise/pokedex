@@ -4,7 +4,7 @@ import { isMobile } from 'react-device-detect';
 import Searcher from "./components/Searcher";
 import PokemonList from "./components/PokemonList";
 import logo from "./static/logo.svg";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { fetchPokemonsWithDetails } from "./slices/dataSlices";
 import PokeModal from "./components/PokeModal";
