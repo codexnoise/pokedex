@@ -9,7 +9,7 @@
 @media (max-width: 600px) {
     .PokemonList {
         display: block; /* Cambia a diseño de columna */
-        margin: 1rem; /* Ajusta el margen para una apariencia adecuada en móvil */
+        margin: 3rem 1rem 1rem; /* Ajusta el margen para una apariencia adecuada en móvil */
         padding: 0; /* Elimina el relleno adicional */
     }
 }
