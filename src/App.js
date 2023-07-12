@@ -1,9 +1,10 @@
 import "./App.css";
 import { Col, Spin } from "antd";
+import { isMobile } from 'react-device-detect';
 import Searcher from "./components/Searcher";
 import PokemonList from "./components/PokemonList";
 import logo from "./static/logo.svg";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { fetchPokemonsWithDetails } from "./slices/dataSlices";
 import PokeModal from "./components/PokeModal";
@@ -26,10 +27,10 @@ function App() {
   return (
     <div className="App">
       {showModal && <PokeModal />}
-      <Col span={5} offset={10}>
+      <Col span={isMobile ? 16 : 8} offset={isMobile ? 4 : 8}>
         <img src={logo} alt="pokedux" />
       </Col>
-      <Col span={8} offset={8}>
+      <Col span={isMobile ? 18 : 10} offset={isMobile ? 3 : 7}>
         <Searcher />
       </Col>
       {loading ? (
