@@ -3,6 +3,7 @@ import "../styles/PokemonList.css";
 
 const PokemonList = ({ pokemons }) => {
   return (
+    <>
     <div className="PokemonList">
       {pokemons.map((pokemon) => {
         return (
@@ -16,7 +17,10 @@ const PokemonList = ({ pokemons }) => {
           />
         );
       })}
+     
     </div>
+    <footer>developed with 💚 by @noisecodex</footer>
+   </>
   );
 };
 

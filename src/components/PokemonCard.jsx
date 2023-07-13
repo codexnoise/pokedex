@@ -4,6 +4,7 @@ import Meta from "antd/lib/card/Meta";
 import { useDispatch } from "react-redux";
 import { setFavorite } from "../slices/dataSlices";
 import { setModal, setIdModal } from "../slices/uiSlices";
+import { isMobile } from 'react-device-detect';
 
 const PokemonCard = ({ name, image, abilities, id, favorite }) => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const PokemonCard = ({ name, image, abilities, id, favorite }) => {
         title={name}
         cover={<img src={image} alt={name} onClick={() => handleModal()} />}
         extra={<StartButton isFavorite={favorite} onClick={handleFavorites} />}
-        style={{ marginTop: '1.25rem'}}
+        style={{ marginTop: isMobile ? '1.25rem' : '0'}}
       >
         <Meta description={allAbilities} />
       </Card>

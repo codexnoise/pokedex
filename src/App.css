@@ -5,5 +5,14 @@
 }
 
 .App img {
-margin-bottom: 3rem;
+  margin-bottom: 3rem;
+}
+
+footer {
+  width: 100%;
+  color: white;
+  background-color: #333333 ;
+  position: fixed;
+  bottom: 0;
+  text-align: center; 
 }
