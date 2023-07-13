@@ -27,6 +27,7 @@ const PokemonCard = ({ name, image, abilities, id, favorite }) => {
         title={name}
         cover={<img src={image} alt={name} onClick={() => handleModal()} />}
         extra={<StartButton isFavorite={favorite} onClick={handleFavorites} />}
+        style={{ marginTop: '1.25rem'}}
       >
         <Meta description={allAbilities} />
       </Card>
