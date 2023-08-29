@@ -34,7 +34,7 @@ Push to your branch:
 `git push origin my-feature `
 
 ## Author
-@noisecodex
+@codexnoise
 
 ## License
 This project is under MIT License.

@@ -25,7 +25,7 @@
     "thunk": "0.0.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://noisecodex.github.io/pokedex",
+  "homepage": "https://codexnoise.github.io/pokedex",
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",

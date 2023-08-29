@@ -19,7 +19,7 @@ const PokemonList = ({ pokemons }) => {
       })}
      
     </div>
-    <footer>developed with 💚 by @noisecodex</footer>
+    <footer>developed with 💚 by @codexnoise</footer>
    </>
   );
 };
